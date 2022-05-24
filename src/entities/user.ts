@@ -1,6 +1,6 @@
-import { UserData } from './user-data'
-import { Either, left, right } from '../shared'
-import { InvalidEmailError, InvalidNameError } from './errors'
+import { UserData } from '@/entities'
+import { Either, left, right } from '@/shared'
+import { InvalidEmailError, InvalidNameError } from '@/entities/errors'
 import { Email } from './email'
 import { Name } from './name'
 
