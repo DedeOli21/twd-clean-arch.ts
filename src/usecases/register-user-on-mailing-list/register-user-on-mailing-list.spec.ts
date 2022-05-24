@@ -1,4 +1,4 @@
-import { InvalidEmailError, InvalidNameError } from '../../entities/errors'
+import { InvalidNameError } from '../../entities/errors'
 import { UserData } from '../../entities/user-data'
 import { left } from '../../shared'
 import { UserRepository } from './ports/user-repository'
