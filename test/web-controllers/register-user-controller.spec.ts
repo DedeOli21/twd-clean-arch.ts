@@ -4,14 +4,14 @@ import { UseCase } from '@/usecases/ports'
 import { RegisterUserOnMailingList } from '@/usecases/register-user-on-mailing-list'
 import { UserRepository } from '@/usecases/register-user-on-mailing-list/ports'
 import { HttpRequest, HttpResponse } from '@/web-controllers/ports'
-import { RegisterUserController } from '@/web-controllers/register-user-controller'
+import { RegisterAndSendEmailController } from '@/web-controllers/register-user-controller'
 import { InMemoryUserRepository } from '@test/usecases/register-user-on-mailing-list/repository'
 
 describe('Register user web controller', () => {
   const users: UserData[] = []
   const repo: UserRepository = new InMemoryUserRepository(users)
   const usecase: UseCase = new RegisterUserOnMailingList(repo)
-  const controller: RegisterUserController = new RegisterUserController(usecase)
+  const controller: RegisterAndSendEmailController = new RegisterAndSendEmailController(usecase)
 
   class ErrorThrowingUseCaseStub implements UseCase {
     perform (request: any): Promise<void> {
@@ -94,7 +94,7 @@ describe('Register user web controller', () => {
         email: 'any@mail.com'
       }
     }
-    const controller: RegisterUserController = new RegisterUserController(errorThrowingUseCaseStub)
+    const controller: RegisterAndSendEmailController = new RegisterAndSendEmailController(errorThrowingUseCaseStub)
     const response: HttpResponse = await controller.handle(request)
     expect(response.statusCode).toBe(500)
     expect(response.body).toBeInstanceOf(Error)
