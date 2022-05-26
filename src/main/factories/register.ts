@@ -1,6 +1,6 @@
 import { RegisterAndSendEmailController } from '@/web-controllers/'
 import { RegisterUserOnMailingList } from '@/usecases/register-user-on-mailing-list/'
-import { InMemoryUserRepository } from '@test/usecases/register-user-on-mailing-list/repository'
+import { InMemoryUserRepository } from '@/usecases/register-user-on-mailing-list/repository'
 // // import { MongodbUserRepository } from '@/external/repositories/mongodb'
 // // import { SendEmail } from '@/usecases/send-email'
 // // import { NodemailerEmailService } from '@/external/mail-services'
